@@ -1,21 +1,25 @@
 CVE Management System
-Overview
+Overview:
+
 The CVE Management System is a web application that fetches Common Vulnerabilities and Exposures (CVE) data from the National Vulnerability Database (NVD) API and stores it in a MySQL database. This system allows users to filter, view, and search CVE data based on various parameters like year, score, and individual CVE ID. Additionally, the application includes a front-end interface to display the CVE data in a user-friendly format.
 
 Features:
-Fetch and store CVE data from the NVD API.
-Display CVE data in a user-friendly web interface.
-View detailed information about specific CVEs.
+
+-Fetch and store CVE data from the NVD API.
+-Display CVE data in a user-friendly web interface.
+-View detailed information about specific CVEs.
 
 Prerequisites:
+
 Before running this application, ensure you have the following installed:
-Python 3.x
-MySQL Database
-pymysql library
-Flask framework
-requests library
+-Python 3.x
+-MySQL Database
+-pymysql library
+-Flask framework
+-requests library
 
 Installation:
+
 Step 1: Set up MySQL Database
 Create a MySQL database named cve_data:
 sql
