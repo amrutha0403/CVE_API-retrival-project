@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #aca2a2;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        th, td {
+            text-align: left;
+        }
+
+        table, th, td {
+        border: 1px solid black;
+    }
+
+        
+    </style>
+</head>
+<body>
+    <h1>CVE List</h1>
+    {% if cves %}
+        <p>Number of CVEs: {{ cves|length }}</p>
+    {% else %}
+        <p>No CVEs available.</p>
+    {% endif %}
+    <div>
+        <label for="resultsPerPage">Results Per Page:</label>
+        <select id="resultsPerPage" name="resultsPerPage" onchange="fetchCves(1)">
+            <option value="10" {% if results_per_page == 10 %}selected{% endif %}>10</option>
+            <option value="50" {% if results_per_page == 50 %}selected{% endif %}>50</option>
+            <option value="100" {% if results_per_page == 100 %}selected{% endif %}>100</option>
+        </select>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>CVE ID</th>
+                <th>Identifier</th>
+                <th>Description</th>
+                <th>Base Score</th>
+                <th>Publisher Date</th>
+                <th>Last Modified</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="cve-table">
+            {% for cve in cves %}
+                <tr class="clickable-row" data-cve-id="{{ cve['cve_id'] }}">
+                    <td>{{ cve['cve_id'] }}</td>
+                    <td>{{ cve['identifier'] }}</td>
+                    <td>{{ cve['description'] }}</td>
+                    <td>{{ cve['base_score'] }}</td>
+                    <td>{{ cve['publisher_date'] }}</td>
+                    <td>{{ cve['last_modified'] }}</td>
+                    <td>{{ cve['status'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <script>
+        document.querySelectorAll('.clickable-row').forEach(row => {
+            row.addEventListener('click', (e) => {
+                const cveId = row.getAttribute('data-cve-id');
+                // Navigate to the second page with the selected CVE ID
+                window.location.href = `/cves/${cveId}`;
+            });
+        });
+    </script>
+</body>
+</html>

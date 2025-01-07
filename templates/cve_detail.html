@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ cve.cve_id }} - CVE Details</title>
+</head>
+<body>
+    <h1>Details for {{ cve.cve_id }}</h1>
+    
+    <table border="1">
+        <tr>
+            <th>Description</th>
+            <td>{{ cve.description }}</td>
+        </tr>
+        <tr>
+            <th>Severity</th>
+            <td>{{ cve.severity }}</td>
+        </tr>
+        <tr>
+            <th>Base Score</th>
+            <td>{{ cve.base_score }}</td>
+        </tr>
+        <tr>
+            <th>CVSS Vector String</th>
+            <td>{{ cve.cvss_vector_string }}</td>
+        </tr>
+        <tr>
+            <th>Exploitability Score</th>
+            <td>{{ cve.exploitability_score }}</td>
+        </tr>
+        <tr>
+            <th>Impact Score</th>
+            <td>{{ cve.impact_score }}</td>
+        </tr>
+        <tr>
+            <th>CPE</th>
+            <td>
+                {% for cpe in cve.cpe %}
+                    <p>{{ cpe }}</p>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Publisher Date</th>
+            <td>{{ cve.publisher_date }}</td>
+        </tr>
+        <tr>
+            <th>Last Modified</th>
+            <td>{{ cve.last_modified }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ cve.status }}</td>
+        </tr>
+    </table>
+</body>
+</html>
