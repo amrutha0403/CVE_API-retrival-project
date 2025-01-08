@@ -70,6 +70,8 @@ output:
 syncronization of data
 ![1](https://github.com/user-attachments/assets/9a93cda4-6105-4a25-b18a-6a01d558988a)
 
+![12](https://github.com/user-attachments/assets/2bf61fda-555e-4c36-99ae-9b5c43a99c8d)
+
 CVE-List
 ![2 0](https://github.com/user-attachments/assets/cef6b3b8-3428-4922-b1c7-4fdddb5b4490)
 
